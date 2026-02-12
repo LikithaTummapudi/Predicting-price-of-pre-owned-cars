@@ -1,73 +1,73 @@
-🚗 Car Price Prediction using Machine Learning
-📌 Project Overview
+# 🚗 Car Price Prediction using Machine Learning
 
-This project focuses on predicting car prices using supervised machine learning techniques. Two different approaches were used to handle missing values in the dataset, and their impact on model performance was analyzed.
+## 📌 Project Overview
 
-The models implemented:
+This project predicts car prices using supervised machine learning techniques.
+Two different missing-value handling strategies were applied, and their impact on model performance was analyzed.
 
-✅ Linear Regression
+### Models implemented:
 
-✅ Random Forest Regressor
+Linear Regression
 
-Both models were trained and evaluated on:
+Random Forest Regressor
 
-Dataset after omitting rows with missing values
+Two dataset variants:
 
-Dataset after imputing missing values
+Dataset obtained by dropping rows with missing values
 
-This allows comparison of how missing data handling affects model accuracy.
+Dataset obtained by imputing missing values
 
-📊 Dataset
+## 📊 Dataset
 
-The dataset used in this project was obtained from course material and is not sourced from Kaggle.
+The dataset used in this project was provided as part of course material and is not sourced from Kaggle.
 
-You can download the dataset here:
 
-👉 Dataset Link:
-https://drive.google.com/file/d/1SBXoQjDM_5vvpQeHssq2VGK36TbtJS6W/view
+🔗 Dataset Download Link
 
-Note: The dataset is hosted externally due to size and ownership considerations.
+👉 https://drive.google.com/file/d/1SBXoQjDM_5vvpQeHssq2VGK36TbtJS6W/view
 
-🔎 Data Preprocessing
+⚠️ The dataset is hosted externally due to size and ownership considerations and is therefore not included in this repository.
 
-Two preprocessing strategies were applied:
+## 🔎 Data Preprocessing
 
-1️⃣ Removing Missing Values
+Two preprocessing approaches were followed:
 
-All rows containing any missing values were dropped.
+### 🧹 Approach 1: Dropping Missing Values
 
-Ensures clean dataset.
+Rows containing any missing values were removed.
 
-May reduce dataset size significantly.
+Results in a clean dataset.
 
-2️⃣ Imputing Missing Values
+Reduces dataset size.
 
-Missing numerical values were filled using statistical methods (e.g., mean/median).
+### 🧪 Approach 2: Imputing Missing Values
+
+Missing numerical values were filled using statistical methods (mean/median).
 
 Preserves dataset size.
 
-Reduces data loss.
+Helps retain valuable information.
 
-🤖 Models Used
-🔹 Linear Regression
+## 🤖 Machine Learning Models
+### 🔹 Linear Regression
 
-Baseline regression model.
+Baseline regression model
 
-Simple and interpretable.
+Simple and interpretable
 
-Useful for understanding linear relationships between features and target.
+Assumes linear relationships between features and target
 
-🔹 Random Forest Regressor
+### 🔹 Random Forest Regressor
 
-Ensemble learning method.
+Ensemble learning technique
 
-Handles non-linearity well.
+Handles non-linear relationships
 
-Generally provides better prediction performance.
+Provides better performance in most cases
 
-📈 Model Comparison
+## 📈 Model Evaluation
 
-The models were evaluated on:
+The models were evaluated using the following metrics:
 
 R² Score
 
@@ -75,13 +75,13 @@ Mean Absolute Error (MAE)
 
 Mean Squared Error (MSE)
 
-This comparison helps determine:
+Comparisons were made to analyze:
 
-Whether imputing or dropping missing values yields better results.
+The effect of missing-value handling
 
-Which model performs best for car price prediction.
+Performance differences between models
 
-🛠️ Technologies Used
+## 🛠️ Technologies Used
 
 Python
 
@@ -91,37 +91,30 @@ NumPy
 
 Scikit-learn
 
-Matplotlib / Seaborn (for visualization)
+Matplotlib / Seaborn
 
-🚀 How to Run the Project
-
-Clone this repository:
-
+## 🚀 How to Run the Project
+1️⃣ Clone the repository
 git clone <your-repository-link>
 
+2️⃣ Download the dataset
 
-Download the dataset from the Google Drive link above.
+Download the dataset from the link above.
 
-Place the dataset file inside the project directory.
+3️⃣ Place the dataset
 
-Run the Jupyter Notebook or Python script:
+Place the dataset file inside the project directory (for example, in a data/ folder).
 
+4️⃣ Run the project
 python filename.py
 
-📌 Key Insights
 
-Handling missing data significantly impacts model performance.
+or open the Jupyter Notebook and run all cells.
 
-Random Forest generally performs better due to its ability to model complex relationships.
+## 📌 Key Insights
 
-Imputation often preserves predictive power compared to simply dropping data.
+Handling missing values significantly affects prediction performance.
 
-📬 Future Improvements
+Random Forest generally outperforms Linear Regression.
 
-Hyperparameter tuning
-
-Feature engineering
-
-Cross-validation
-
-Trying advanced models (XGBoost, Gradient Boosting)
+Imputation often yields better results than dropping data.
