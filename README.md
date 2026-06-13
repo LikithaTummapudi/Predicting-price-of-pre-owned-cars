@@ -2,25 +2,36 @@
 
 ## 📌 Project Overview
 
-This project predicts car prices using supervised machine learning techniques.
-Two different missing-value handling strategies were applied, and their impact on model performance was analyzed.
+This project predicts the prices of pre-owned cars using supervised machine learning techniques. Multiple preprocessing strategies were explored to understand the impact of missing-value handling on model performance.
 
-### Models implemented:
+Two machine learning models were implemented and compared:
 
-Linear Regression
+* Linear Regression
+* Random Forest Regressor
 
-Random Forest Regressor
+Two dataset variants were evaluated:
 
-Two dataset variants:
+1. Dataset obtained by dropping rows with missing values
+2. Dataset obtained by imputing missing values
 
-Dataset obtained by dropping rows with missing values
-
-Dataset obtained by imputing missing values
+---
 
 ## 📊 Dataset
 
-The dataset used in this project was provided as part of course material and is not sourced from Kaggle.
+The dataset contains approximately **50,000 used car listings** with features such as:
 
+* Vehicle age
+* Brand
+* Model
+* Fuel type
+* Power (PS)
+* Kilometers driven
+* Gearbox type
+* Vehicle condition
+
+After cleaning and outlier removal, the dataset was used for predictive modeling and performance comparison.
+
+The dataset used in this project was provided as part of course material and is not sourced from Kaggle.
 
 🔗 Dataset Download Link
 
@@ -28,93 +39,123 @@ The dataset used in this project was provided as part of course material and is 
 
 ⚠️ The dataset is hosted externally due to size and ownership considerations and is therefore not included in this repository.
 
-## 🔎 Data Preprocessing
+---
 
-Two preprocessing approaches were followed:
+## 🔎 Data Preprocessing
 
 ### 🧹 Approach 1: Dropping Missing Values
 
-Rows containing any missing values were removed.
-
-Results in a clean dataset.
-
-Reduces dataset size.
+* Removed records containing missing values.
+* Produced a cleaner dataset.
+* Reduced dataset size.
 
 ### 🧪 Approach 2: Imputing Missing Values
 
-Missing numerical values were filled using statistical methods (mean/median).
+* Filled numerical missing values using median values.
+* Filled categorical missing values using the most frequent category.
+* Preserved more training data.
 
-Preserves dataset size.
+### Additional Processing
 
-Helps retain valuable information.
+* Removed duplicate records.
+* Filtered unrealistic values for:
+
+  * Registration Year
+  * Vehicle Price
+  * Engine Power
+* Created a new **Age** feature from registration year and month.
+* Applied one-hot encoding to categorical variables.
+* Performed exploratory data analysis (EDA) and feature relationship analysis.
+
+---
 
 ## 🤖 Machine Learning Models
+
 ### 🔹 Linear Regression
 
-Baseline regression model
-
-Simple and interpretable
-
-Assumes linear relationships between features and target
+* Baseline regression model.
+* Easy to interpret.
+* Assumes linear relationships between variables.
 
 ### 🔹 Random Forest Regressor
 
-Ensemble learning technique
+* Ensemble learning method.
+* Captures non-linear relationships.
+* Provides stronger predictive performance.
 
-Handles non-linear relationships
-
-Provides better performance in most cases
+---
 
 ## 📈 Model Evaluation
 
-The models were evaluated using the following metrics:
+### Dataset with Missing Values Removed
 
-R² Score
+| Model             | Train R² | Test R²   | RMSE      |
+| ----------------- | -------- | --------- | --------- |
+| Linear Regression | 0.780    | 0.757     | 0.546     |
+| Random Forest     | 0.920    | **0.850** | **0.436** |
 
-Mean Absolute Error (MAE)
+### Dataset with Missing Values Imputed
 
-Mean Squared Error (MSE)
+| Model             | Train R² | Test R²   | RMSE      |
+| ----------------- | -------- | --------- | --------- |
+| Linear Regression | 0.702    | 0.707     | 0.648     |
+| Random Forest     | 0.902    | **0.827** | **0.494** |
 
-Comparisons were made to analyze:
+### Baseline Comparison
 
-The effect of missing-value handling
+| Dataset                | Baseline RMSE |
+| ---------------------- | ------------- |
+| Missing Values Removed | 1.127         |
+| Missing Values Imputed | 1.188         |
 
-Performance differences between models
+---
 
 ## 🛠️ Technologies Used
 
-Python
+* Python
+* Pandas
+* NumPy
+* Scikit-learn
+* Matplotlib
+* Seaborn
 
-Pandas
+---
 
-NumPy
+## 🚀 How to Run
 
-Scikit-learn
+1. Clone the repository
 
-Matplotlib / Seaborn
+```bash
+git clone <repository-url>
+```
 
-## 🚀 How to Run the Project
-1️⃣ Clone the repository
-git clone <your-repository-link>
+2. Download the dataset and place it in the project directory.
 
-2️⃣ Download the dataset
+3. Install dependencies
 
-Download the dataset from the link above.
+```bash
+pip install pandas numpy scikit-learn matplotlib seaborn
+```
 
-3️⃣ Place the dataset
+4. Run the project
 
-Place the dataset file inside the project directory (for example, in a data/ folder).
+```bash
+python car_price_prediction.py
+```
 
-4️⃣ Run the project
-python filename.py
-
-
-or open the Jupyter Notebook and run all cells.
+---
 
 ## 📌 Key Insights
 
-Handling missing values significantly affects prediction performance.
+* Random Forest consistently outperformed Linear Regression across both datasets.
+* The best-performing model achieved an **R² Score of 0.85** on the test set.
+* Missing-value handling significantly affected model performance.
+* Removing missing values resulted in slightly better predictive accuracy than imputation.
+* Feature engineering and data cleaning substantially improved prediction quality.
+* Ensemble methods proved more effective than traditional linear models for used-car price prediction.
 
-Random Forest generally outperforms Linear Regression.
+---
 
-Imputation often yields better results than dropping data.
+## 🎯 Conclusion
+
+This project demonstrates a complete machine learning workflow, including data preprocessing, exploratory data analysis, feature engineering, model training, and evaluation. Among all experiments, the Random Forest Regressor trained on the cleaned dataset achieved the strongest performance with a test **R² score of 0.85** and **RMSE of 0.436**, making it the preferred model for predicting pre-owned car prices.
